@@ -21,8 +21,8 @@ class BooksActivity : AppCompatActivity() {
         setSupportActionBar(toolbarMain)
 
         val viewModel: BooksViewModel = ViewModelProviders.of(this).get(BooksViewModel::class.java)
-        viewModel.bookLiveData.observe(this, Observer {
-            it?.let { books ->
+        viewModel.getBooks().observe(this, Observer {
+           /* it?.let { books ->
                 with(recycleBooks) {
                     layoutManager =
                         LinearLayoutManager(this@BooksActivity, RecyclerView.VERTICAL, false)
@@ -31,7 +31,7 @@ class BooksActivity : AppCompatActivity() {
                 }
 
             }
-        })
-        viewModel.getBooks()
+        */})
+
     }
 }
