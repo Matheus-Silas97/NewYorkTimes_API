@@ -6,9 +6,11 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.matheussilas.nytimesbooks.R
 import com.matheussilas.nytimesbooks.data.model.Book
+import com.matheussilas.nytimesbooks.data.response.BookDetailsResponse
+import com.matheussilas.nytimesbooks.data.response.BookResultsResponse
 import kotlinx.android.synthetic.main.item_book.view.*
 
-class BooksAdapter(private val books: List<Book>) :
+class BooksAdapter(val books: List<BookResultsResponse>) :
     RecyclerView.Adapter<BooksAdapter.BooksViewHolder>() {
 
     class BooksViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -16,9 +18,9 @@ class BooksAdapter(private val books: List<Book>) :
         private val title = itemView.textTitle
         private val author = itemView.textAuthor
 
-        fun bindView(book: Book) {
-            title.text = book.title
-            author.text = book.author
+        fun bindView(book: BookResultsResponse) {
+            title.text = book.bookDetails[0].title
+            author.text = book.bookDetails[0].author
         }
 
     }
